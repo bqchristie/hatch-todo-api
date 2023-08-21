@@ -3,8 +3,8 @@ export default {
   properties: {
     id: { type: "integer" },
     status: { type: "string" },
-    createdAt: { type: "string", format: "date-time" },
-    updatedAt: { type: "string", format: "date-time" },
+    createdAt: { type: "string", format: "date-time", nullable: true },
+    updatedAt: { type: "string", format: "date-time", nullable: true },
     description: { type: "string" },
   },
   required: ["status", "description"],

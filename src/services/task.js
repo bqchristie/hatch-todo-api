@@ -20,6 +20,8 @@ class TaskService {
 
   static async create(data) {
     try {
+      data.createdAt = new Date();
+      data.updatedAt = data.createdAt;
       return await Task.create({ data });
     } catch (err) {
       throw new DatabaseError(err);
@@ -28,6 +30,7 @@ class TaskService {
 
   static async update(id, data) {
     try {
+      data.updatedAt = new Date();
       return await Task.update({
         where: { id },
         data,

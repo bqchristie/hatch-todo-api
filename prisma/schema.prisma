@@ -11,9 +11,9 @@ generator client {
 }
 
 model Task {
-  id Int @id @default(autoincrement())
-  status String
-  createdAt DateTime?
-  updatedAt DateTime?
+  id          Int       @id @default(autoincrement())
+  status      String
+  createdAt   DateTime?
+  updatedAt   DateTime?
   description String
 }
