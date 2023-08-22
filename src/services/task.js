@@ -48,6 +48,15 @@ class TaskService {
       throw new DatabaseError(err);
     }
   }
+
+  static async deleteAll() {
+    try {
+      await Task.deleteMany({});
+      return true;
+    } catch (err) {
+      throw new DatabaseError(err);
+    }
+  }
 }
 
 export default TaskService;

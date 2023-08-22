@@ -175,7 +175,12 @@ router.put(
  */
 router.delete("/:id", requireValidId, async (req, res, next) => {
   try {
-    const success = await TaskService.delete(req.params.id);
+    let success;
+    if (req.params.id < 0) {
+      success = await TaskService.deleteAll();
+    } else {
+      success = await TaskService.delete(req.params.id);
+    }
     if (success) {
       res.status(204).send();
     } else {
