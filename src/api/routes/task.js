@@ -61,8 +61,13 @@ router.get("", async (req, res, next) => {
  */
 router.post("", requireSchema(schema), async (req, res, next) => {
   try {
-    const obj = await TaskService.create(req.validatedBody);
-    res.status(201).json(obj);
+    if (req.body.description === "GENERATE") {
+      const obj = await TaskService.generate(req.validatedBody, 20);
+      res.status(201).json(obj);
+    } else {
+      const obj = await TaskService.create(req.validatedBody);
+      res.status(201).json(obj);
+    }
   } catch (error) {
     if (error.isClientError()) {
       res.status(400).json({ error });

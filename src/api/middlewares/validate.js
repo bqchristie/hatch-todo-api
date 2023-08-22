@@ -33,11 +33,11 @@ export const requireSchema = (schema, options = {}) => {
 };
 
 export const requireValidId = (req, res, next) => {
-  // if (validator.isInt(req.params.id, { min: 1 })) {
-  //   req.params.id = parseInt(req.params.id);
-  // } else {
-  //   res.status(400).json({ error: "URL does not contain a valid object ID" });
-  //   return;
-  // }
+  try {
+    req.params.id = parseInt(req.params.id);
+  } catch (e) {
+    res.status(400).json({ error: "URL does not contain a valid object ID" });
+    return;
+  }
   next();
 };

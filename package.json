@@ -5,6 +5,7 @@
   "description": "Hatch-TODO - Skills Evaluation",
   "main": "app.js",
   "dependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@prisma/client": "^3.15.2",
     "bcrypt": "^5.0.1",
     "bull": "^4.8.4",

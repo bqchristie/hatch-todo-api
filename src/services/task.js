@@ -1,5 +1,6 @@
 import { Task } from "../models/init.js";
 import DatabaseError from "../models/error.js";
+import { faker } from "@faker-js/faker";
 
 class TaskService {
   static async list() {
@@ -13,6 +14,22 @@ class TaskService {
   static async get(id) {
     try {
       return await Task.findUnique({ where: { id } });
+    } catch (err) {
+      throw new DatabaseError(err);
+    }
+  }
+
+  static async generate(data, quantity) {
+    const statuses = ["NEW", "IN PROGRESS", "QA", "DONE"];
+    try {
+      for (let i = 0; i < quantity; i++) {
+        data.createdAt = new Date();
+        data.updatedAt = data.createdAt;
+        data.description = faker.lorem.sentence(8);
+        data.status = statuses[i < 7 ? 0 : i < 15 ? 1 : i < 17 ? 2 : 3];
+        await Task.create({ data });
+      }
+      return {};
     } catch (err) {
       throw new DatabaseError(err);
     }
