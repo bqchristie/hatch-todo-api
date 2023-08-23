@@ -1,6 +1,25 @@
 # Hatch-TODO
 
-Skills Evaluation
+Most of my comments for the complete application are sitting in corresponding repository for the client application.
+[HERE](https://github.com/bqchristie/hatch-todo-client)
+
+
+
+* I will call out that I started this project from the [API bakery.](https://apibakery.com/)  
+* The bakery gives a very good baseline set a code for implementing best practices.
+* Not saying that I wouldn't to get to these things on my own but this is a very convenient way of getting a project off to a good start.
+
+[API and DOCS are here](http://172.105.110.150:3000/api/docs/)
+
+You can also get them locally by running the app.
+
+**NOTE:  The DB is SQL Lite and for simplicity travels with the repo. I would obviously modify for production.**
+
+
+
+
+
+
 
 ## Quickstart
 
